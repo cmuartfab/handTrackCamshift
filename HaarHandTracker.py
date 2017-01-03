@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import sys
 import time
+from datetime import datetime
 
 print 'Number of arguments:', len(sys.argv), 'arguments.'
 if (len(sys.argv)==2):
@@ -25,6 +26,7 @@ disc = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
 count=50
 while(cap.isOpened()):
     ret,img = cap.read()
+    print(str(datetime.now()))
     if found == 0 and draw == 0:
         #somethings to experiment are varying the scale and decreasing or increaasing the nieghbors
         hands = hand.detectMultiScale(img,1.05,100)
